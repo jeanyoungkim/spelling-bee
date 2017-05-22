@@ -88,6 +88,10 @@ header {
 	        justify-content: center;
 }
 
+header h1 {
+	height: 30px;
+}
+
 #scoreboard {
 	font-size: 0.75em;
 	padding: 2% 3%;
