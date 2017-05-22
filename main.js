@@ -100,7 +100,7 @@ const validateAnswer = () => {
 const isValid = (guess) => (guess.includes(centerLetter) && answers.includes(guess) && !foundWords.includes(guess))
 
 const setUpEventListeners = () => {
-	const waitThenCheck = _.debounce(validateAnswer, 600, {'trailing': true, 'leading': false})
+	const waitThenCheck = _.debounce(validateAnswer, 500, {'trailing': true, 'leading': false})
 	const debouncedShuffle = _.debounce(shuffleTiles, 800, {'leading': true, 'trailing': false})
 	document.addEventListener('click', () => { if (input.innerHTML.length > 4) waitThenCheck() })
 	key.addEventListener('click', e => typeLetter(e, 'gold'));
