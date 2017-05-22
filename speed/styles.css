@@ -67,8 +67,9 @@ header {
 	background-color: black;
 	color: white;
 	font-family: magslab;
+	height: 60px;
 	letter-spacing: 1px;
-	padding: 0.75em 0;
+	padding: 0.5em 0;
 	text-align: center;
 	width: 100%;
 }
@@ -110,6 +111,7 @@ header {
 	background-color: var(--coral);
 	border-radius: 50%;
 	font-family: magsans-bold;
+  height: 28px;
 	padding: 8px;
 	text-align: center;
 	width: 28px;
@@ -388,6 +390,7 @@ header {
 	display: none;
 	position: absolute;
 	background-color: black;
+  height: 100vh;
 	top: 0;
 	bottom: 0;
 	right: 0;
