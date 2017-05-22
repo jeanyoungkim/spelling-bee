@@ -25,6 +25,7 @@ section {
 h1 {
   font-family: magslab;
   font-size: 3em;
+  height: 7vh;
   margin-bottom: 15px;
 }
 
@@ -52,6 +53,7 @@ a {
   color: black;
   font-family: magslab;
   font-size: 2em;
+  height: 8vh;
   margin-top: 25px;
   padding: 0.4em 1.7em;
   text-decoration: none;
