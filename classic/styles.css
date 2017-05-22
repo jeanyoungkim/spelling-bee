@@ -1,0 +1,29 @@
+@import '../shared.css';
+
+@-webkit-keyframes spin {
+	from {
+		color: rgba(51, 51, 51, 0);
+		-webkit-transform: rotate(180deg);
+		        transform: rotate(180deg);
+	}
+
+	to {
+		color: rgba(51, 51, 51, 1);
+		-webkit-transform: rotate(360deg);
+		        transform: rotate(360deg);
+	}
+}
+
+@keyframes spin {
+	from {
+		color: rgba(51, 51, 51, 0);
+		-webkit-transform: rotate(180deg);
+		        transform: rotate(180deg);
+	}
+
+	to {
+		color: rgba(51, 51, 51, 1);
+		-webkit-transform: rotate(360deg);
+		        transform: rotate(360deg);
+	}
+}

@@ -68,8 +68,8 @@ const updateScoreBoard = () => score.innerText = userScore
 const updateScore = (pangram) => { userScore += pangram ? 3 : 1; updateScoreBoard() }
 
 const typeLetter = (e, classname) => {
-	const goldLetter = classname && `<span class='gold'>${e.target.innerHTML}</span>`
-	inputArray.push(goldLetter || e.target.innerHTML)
+	const highlightedLetter = classname && `<span class='highlight'>${e.target.innerHTML}</span>`
+	inputArray.push(highlightedLetter || e.target.innerHTML)
 	updateInput()
 }
 
@@ -103,7 +103,7 @@ const setUpEventListeners = () => {
 	const waitThenCheck = _.debounce(validateAnswer, 500, {'trailing': true, 'leading': false})
 	const debouncedShuffle = _.debounce(shuffleTiles, 800, {'leading': true, 'trailing': false})
 	document.addEventListener('click', () => { if (input.innerHTML.length > 4) waitThenCheck() })
-	key.addEventListener('click', e => typeLetter(e, 'gold'));
+	key.addEventListener('click', e => typeLetter(e, 'highlight'));
 	[...tiles].forEach((tile, i) => { tile.addEventListener('click', e => typeLetter(e))})
 	backspaceButton.addEventListener('click', backspace)
 	shuffleButton.addEventListener('click', debouncedShuffle)
