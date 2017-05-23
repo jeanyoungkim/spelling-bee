@@ -47,18 +47,6 @@ p, ul {
   margin-top: 10px;
 }
 
-a {
-  background-color: white;
-  border-radius: 30px;
-  color: black;
-  font-family: magslab;
-  font-size: 2em;
-  height: 8vh;
-  margin-top: 25px;
-  padding: 0.4em 1.7em;
-  text-decoration: none;
-}
-
 a:first-of-type {
   margin-top: 35px;
 }

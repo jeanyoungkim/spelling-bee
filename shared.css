@@ -374,6 +374,9 @@ header h1 {
 }
 
 .round-button {
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 66%;
 	background-color: white;
 	border: 1px solid #ccc;
 	-webkit-box-shadow: 0 4px 0 0 #ccc;
@@ -405,4 +408,24 @@ header h1 {
 	        box-shadow: 0 0 0 0;
   position: relative;
   top: 4px;
+}
+
+#shuffle {
+	background-image: url('./assets/shuffle.svg');
+}
+
+#backspace {
+	background-image: url('./assets/delete.svg');
+}
+
+.oblong-button {
+  background-color: white;
+  border-radius: 30px;
+  color: black;
+  font-family: magslab;
+  font-size: 2em;
+  height: 8vh;
+  margin-top: 25px;
+  padding: 0.4em 1.7em;
+  text-decoration: none;
 }

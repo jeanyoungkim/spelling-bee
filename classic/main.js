@@ -1,16 +1,16 @@
-// const data = {
-// 	centerLetter: 'N',
-// 	outerLetters: ['L', 'A', 'B', 'C', 'H', 'I'],
-// 	pangrams: ['BACCHANALIA', 'BACCHANALIAN'],
-// 	words: ['BANAL', 'BANANA', 'BLANCH', 'BLINI', 'CABANA', 'CABIN', 'CANAL', 'CANCAN', 'CANNIBAL', 'CHAIN', 'CHINA', 'CHINCHILLA',  'CINCH','CLINCH', 'CLINIC', 'CLINICAL', 'CLINICIAN', 'LANAI', 'NIACIN']
-// }
-
 const data = {
-	centerLetter: 'G',
-	outerLetters: ['U', 'A', 'B', 'E', 'H', 'L'],
-	pangrams: ['HUGGABLE', 'LAUGHABLE'],
-	words: ['ALGAE', 'ALLEGE', 'BAGEL', 'BAGGAGE', 'BEAGLE', 'BELUGA', 'BUGLE', 'BULGE', 'EAGLE', 'GABBLE', 'GABLE', 'GAGGLE',  'GAUGE','GULAG', 'HAGGLE', 'HAULAGE', 'LAUGH', 'LEAGUE', 'LEGAL', 'LUGGAGE']
+	centerLetter: 'N',
+	outerLetters: ['L', 'A', 'B', 'C', 'H', 'I'],
+	pangrams: ['BACCHANALIA', 'BACCHANALIAN'],
+	words: ['BANAL', 'BANANA', 'BLANCH', 'BLINI', 'CABANA', 'CABIN', 'CANAL', 'CANCAN', 'CANNIBAL', 'CHAIN', 'CHINA', 'CHINCHILLA',  'CINCH','CLINCH', 'CLINIC', 'CLINICAL', 'CLINICIAN', 'LANAI', 'NIACIN']
 }
+//
+// const data = {
+// 	centerLetter: 'G',
+// 	outerLetters: ['U', 'A', 'B', 'E', 'H', 'L'],
+// 	pangrams: ['HUGGABLE', 'LAUGHABLE'],
+// 	words: ['ALGAE', 'ALLEGE', 'BAGEL', 'BAGGAGE', 'BEAGLE', 'BELUGA', 'BUGLE', 'BULGE', 'EAGLE', 'GABBLE', 'GABLE', 'GAGGLE',  'GAUGE','GULAG', 'HAGGLE', 'HAULAGE', 'LAUGH', 'LEAGUE', 'LEGAL', 'LUGGAGE']
+// }
 
 const { centerLetter, outerLetters, pangrams, words } = data
 const answers = [...pangrams, ...words]
