@@ -29,7 +29,7 @@ const input = document.querySelector('#input')
 let inputArray = []
 const backspaceButton = document.querySelector('#backspace')
 const shuffleButton = document.querySelector('#shuffle')
-const submitButton = document.querySelector('#submit')
+// const submitButton = document.querySelector('#submit')
 
 const initialize = () => {
 	congrats.style.display = 'none'
