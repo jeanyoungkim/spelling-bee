@@ -105,20 +105,10 @@ const setUpEventListeners = () => {
 	submitButton.addEventListener('click', validateAnswer)
 }
 
-// const intToTimeString = (i) => {
-// 	const poop = {
-// 		tens: Math.floor(i / 6000),
-// 		ones: Math.floor((i % 6000)/100),
-// 		tenths: Math.floor(((i % 6000)/100) % 100),
-// 	}
-// 	return `${poop.tens}${poop.ones}.${poop.tenths}`
-// }
-
 const startTimer = () => {
 	var seconds = 601;
   function tick() {
       seconds -= 1
-			// timer.innerHTML = intToTimeString(seconds)
       timer.innerHTML = parseFloat(seconds/10).toFixed(1)
       if(seconds > 0) {
         setTimeout(tick, 100)

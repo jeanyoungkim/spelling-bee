@@ -1,16 +1,9 @@
 const data = {
 	centerLetter: 'N',
-	outerLetters: ['L', 'A', 'B', 'C', 'H', 'I'],
-	pangrams: ['BACCHANALIA', 'BACCHANALIAN'],
-	words: ['BANAL', 'BANANA', 'BLANCH', 'BLINI', 'CABANA', 'CABIN', 'CANAL', 'CANCAN', 'CANNIBAL', 'CHAIN', 'CHINA', 'CHINCHILLA',  'CINCH','CLINCH', 'CLINIC', 'CLINICAL', 'CLINICIAN', 'LANAI', 'NIACIN']
+	outerLetters: ['C', 'E', 'H', 'I', 'T', 'K'],
+	pangrams: ['KITCHEN', 'KITCHENETTE', 'THICKEN'],
+	words: ['CHICKEN', 'CHINK', 'CINCH', 'ENTENTE', 'ENTICE', 'ETHNIC', 'HEINIE', 'HENCE', 'INCITE', 'INNIE', 'INTENT', 'KINETIC',  'KITTEN','NECKTIE', 'NICHE', 'NIECE', 'NINETEEN', 'NINETEENTH', 'NINETIETH', 'NINTH', 'TENET', 'TENTH', 'THENCE', 'THINE', 'THINK', 'TINCT']
 }
-//
-// const data = {
-// 	centerLetter: 'G',
-// 	outerLetters: ['U', 'A', 'B', 'E', 'H', 'L'],
-// 	pangrams: ['HUGGABLE', 'LAUGHABLE'],
-// 	words: ['ALGAE', 'ALLEGE', 'BAGEL', 'BAGGAGE', 'BEAGLE', 'BELUGA', 'BUGLE', 'BULGE', 'EAGLE', 'GABBLE', 'GABLE', 'GAGGLE',  'GAUGE','GULAG', 'HAGGLE', 'HAULAGE', 'LAUGH', 'LEAGUE', 'LEGAL', 'LUGGAGE']
-// }
 
 const { centerLetter, outerLetters, pangrams, words } = data
 const answers = [...pangrams, ...words]
@@ -100,7 +93,7 @@ const validateAnswer = () => {
 const isValid = (guess) => (guess.includes(centerLetter) && answers.includes(guess) && !foundWords.includes(guess))
 
 const setUpEventListeners = () => {
-	const waitThenCheck = _.debounce(validateAnswer, 500, {'trailing': true, 'leading': false})
+	const waitThenCheck = _.debounce(validateAnswer, 350, {'trailing': true, 'leading': false})
 	const debouncedShuffle = _.debounce(shuffleTiles, 800, {'leading': true, 'trailing': false})
 	document.addEventListener('click', () => { if (input.innerHTML.length > 4) waitThenCheck() })
 	key.addEventListener('click', e => typeLetter(e, 'highlight'));
