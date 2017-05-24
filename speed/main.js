@@ -29,7 +29,7 @@ const input = document.querySelector('#input')
 let inputArray = []
 const backspaceButton = document.querySelector('#backspace')
 const shuffleButton = document.querySelector('#shuffle')
-// const submitButton = document.querySelector('#submit')
+const submitButton = document.querySelector('#submit')
 
 const initialize = () => {
 	congrats.style.display = 'none'
@@ -97,14 +97,12 @@ const validateAnswer = () => {
 const isValid = (guess) => (guess.includes(centerLetter) && answers.includes(guess) && !foundWords.includes(guess))
 
 const setUpEventListeners = () => {
-	const waitThenCheck = _.debounce(validateAnswer, 350, {'trailing': true, 'leading': false})
 	const debouncedShuffle = _.debounce(shuffleTiles, 800, {'leading': true, 'trailing': false})
-	document.addEventListener('click', () => { if (input.innerHTML.length > 4) waitThenCheck() })
 	key.addEventListener('click', e => typeLetter(e, 'highlight'));
 	[...tiles].forEach((tile, i) => { tile.addEventListener('click', e => typeLetter(e))})
 	backspaceButton.addEventListener('click', backspace)
 	shuffleButton.addEventListener('click', shuffleTiles)
-	// submitButton.addEventListener('click', validateAnswer)
+	submitButton.addEventListener('click', validateAnswer)
 }
 
 const startTimer = () => {
