@@ -4,7 +4,13 @@
 <svg version="1.1" id="Layer_2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 width="50px" height="50px" viewBox="0 0 50 50" enable-background="new 0 0 50 50" xml:space="preserve">
 <g>
-	<line fill="none" stroke="#333333" stroke-width="7" stroke-miterlimit="10" x1="10.176" y1="10.176" x2="39.824" y2="39.824"/>
-	<line fill="none" stroke="#333333" stroke-width="7" stroke-miterlimit="10" x1="39.824" y1="10.176" x2="10.176" y2="39.824"/>
+	<path fill="#333333" d="M14.7,13.799h24.219c2.61,0,4.727,2.116,4.727,4.726v12.368c0,2.609-2.116,4.725-4.727,4.725H14.7"/>
+	<polygon fill="#333333" points="14.7,35.622 3.062,24.708 14.7,13.795 	"/>
+</g>
+<g>
+	
+		<line fill="none" stroke="#FFFFFF" stroke-width="2.6019" stroke-miterlimit="10" x1="22.245" y1="19.198" x2="33.265" y2="30.219"/>
+	
+		<line fill="none" stroke="#FFFFFF" stroke-width="2.6019" stroke-miterlimit="10" x1="33.265" y1="19.198" x2="22.245" y2="30.219"/>
 </g>
 </svg>
