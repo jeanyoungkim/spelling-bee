@@ -1,4 +1,4 @@
-@import '../shared.css';
+@import './shared.css';
 
 @-webkit-keyframes spin {
 	from {

@@ -2,23 +2,144 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		<title>Spelling Bee</title>
-		<link rel="stylesheet" href="./styles.css">
+		<script type="text/javascript" src="./js/puzzles.js"></script>
+		<link rel="stylesheet" href="./styles/styles.css">
 	</head>
 	<body>
-		<section>
-			<h1>Spelling Bee</h1>
-			<p>How many common words of 5 or more letters can you spell using the letters in the hive?</p>
+		<div id="alert" class="modal">
+			<div class="modal-content">
+				<div id="close-alert" class="close-x">×</div>
+				<p>Spelling Bee will be unavailable after <span class="highlighted-text"> July 20</span>.</p>
+				<p>If you’ve enjoyed this prototype, don’t worry:</p>
+				<p>It will BEE back!</p>
+				<hr/>
+				<p>Have feedback? </br><a href="mailto:gameprototypes@nytimes.com?Subject=Spelling%20Bee%20Feedback">Email Us »</a></p>
+			</div>
+		</div>
+		<div id="concierge">
+
+			<section id="welcome">
+				<div>
+					<a href="/games/prototype/spelling-bee/classic/index.html">
+						<h1>Spelling Bee</h1>
+					</a>
+					<p>Create words using letters from the hive</p>
+					<ul>
+						<li>Words must contain at least 4 letters</li>
+						<li>Words must include a <font color="#f8cd05">yellow</font> letter</li>
+						<li>Letters can be repeated</li>
+					</ul>
+					<p>Longer words score more points</p>
+					<p>Use all 7 letters for even more points</p>
+					<p>Go for a high score!</p>
+				</div>
+				<div>
+					<p>Swipe up to start!</p>
+					<div class="arrow bounce"></div>
+				</div>
+			</section>
+		</div>
+
+		<div id="help-modal" class="modal">
+			<div class="modal-content">
+				<div id="close-help" class="close-x">×</div>
+				<h1>Rules</h1>
 				<ul>
-				<li>Every answer must use the center letter at least once.</li>
-				<li>Letters may be reused in a word. </li>
-				<li>At least one word will use all 7 letters. </li>
-				<li>Proper names and hyphenated words are not allowed.</li>
+					<li>Words must be at least <b>4 letters long</b>.</li>
+					<li>Every answer must use the center letter at least once.</li>
+					<li>Letters may be reused in a word. </li>
+					<li>Proper names and hyphenated words are not allowed.</li>
 				</ul>
-			<p>Score 1 point for each answer, and 3 points for a word that uses all 7 letters.</p>
-			<a class='oblong-button' href='./classic/index.html'>Classic</a>
-			<a class='oblong-button' href='./speed/index.html'>Timed</a>
-		</section>
+				<hr>
+				<p>Have feedback? </br><a href="mailto:gameprototypes@nytimes.com?Subject=Spelling%20Bee%20Feedback">Email Us »</a></p>
+			</div>
+		</div>
+
+		<div id="congrats" class="modal">
+			<div class="modal-content">
+				<div id="close-congrats" class="close-x">×</div>
+				<h1>Un-🐝-lievable!</h1>
+				<p>You scored <span class="score">0</span> points and found <span class="word-count"></span> words.
+				</p>
+				<button id="back-to-news" class="oblong-button">Return to Top Stories</button>
+				<hr>
+				<p>Think you can find more?</p>
+				<button id="keep-playing" class="oblong-button">Keep Playing</button>
+				<p>Or come back tomorrow for a new challenge.</p>
+				<hr>
+				<p><a href="mailto:gameprototypes@nytimes.com?Subject=Spelling%20Bee%20Feedback">Email Us »</a></p>
+			</div>
+		</div>
+
+		<div id="finish-modal" class="modal">
+			<div class="modal-content">
+				<div id="close-finish" class="close-x">×</div>
+				<h1>Un-🐝-lievable!</h1>
+				<p>You scored <span class="score">0</span> points and found all <span class="word-count">0</span> words.
+				</p>
+				<hr>
+				<p>Have feedback? </br><a href="mailto:gameprototypes@nytimes.com?Subject=Spelling%20Bee%20Feedback">Email us.</a></p>
+				<hr>
+				<button id="finish-back-to-news" class="oblong-button">Return to Top Stories</button>
+			</div>
+		</div>
+
+		<main class="page">
+			<header>
+				<div id="help-button">?</div>
+				<a href="/games/prototype/spelling-bee/classic/index.html">
+					<h1>Spelling Bee</h1>
+				</a>
+				<div id="ghost-help-button"></div>
+			</header>
+			<section id="scoreboard">
+				<div class="label">Rank: <span id="progress-label"></span></div>
+				<div id="score"></div>
+			</section>
+			<div id="progress-bar">
+				<div id="progress-fill"></div>
+			</div>
+			<ul id="word-bank">
+				<li></li>
+			</ul>
+			<section id="game">
+
+				<div id="input-container">
+					<div id="point-value"></div>
+					<div id="found-modal">Already found!</div>
+					<h1 id="input"></h1>
+				</div>
+				<div id="controls">
+					<div id="shuffle" class="round-button"></div>
+					<button id="submit" class="pressable oblong-button gold" disabled>Submit</button>
+					<div id="backspace" class="round-button"></div>
+				</div>
+				<div id="board">
+					<span class='col'>
+						<div class="half-tile"></div>
+						<div class="tile"></div>
+						<div class="tile"></div>
+						<div class="half-tile"></div>
+					</span>
+					<span class='col'>
+						<div class="tile"></div>
+						<div class="center-tile"></div>
+						<div class="tile"></div>
+					</span>
+					<span class='col'>
+						<div class="half-tile"></div>
+						<div class="tile"></div>
+						<div class="tile"></div>
+						<div class="half-tile"></div>
+					</span>
+				</div>
+			</section>
+		</main>
 	</body>
+	<script type="text/javascript" src="./js/lodash.js"></script>
+	<script type="text/javascript" src="./js/main.babel.js"></script>
 </html>
