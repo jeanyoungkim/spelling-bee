@@ -1,18 +1,9 @@
-const alert = document.querySelector('#alert')
-const closeAlert = document.querySelector('#close-alert')
-
 const initialize = () => {
-	Analytics.defineGame('spelling-bee')
-
 	checkLocalStorage()
 	getPuzzleData()
 
 	setUpEventListeners()
 	renderBoard()
-
-	if (!localStorage.getItem('hasSeenAlert')) {
-		openModal(alert)
-	}
 
 	if (localStorage.getItem('hasProgress')) {
 		loadProgress()
@@ -339,29 +330,14 @@ const submitAnswer = () => {
 	_.delay(() => {
 		if (isValidAnswer && !hasBeenFound) {
 			const isPangram = pangrams.includes(guess)
-			Analytics.push('guess-correct', {
-				guess,
-				timeInGame
-			})
 			addAnswerToWordBank(guess)
 			updateProgress(getPointValue(guess))
 		} else if (!input.innerText.includes(centerLetter)) {
-			Analytics.push('guess-no-center-letter', {
-				guess,
-				timeInGame
-			})
 			_.delay(() => animate(centerTile, 'pulse'), 200)
 		} else if (hasBeenFound) {
-			Analytics.push('guess-already-found', {
-				timeInGame
-			})
 			animate(foundModal, 'blink', 800)
 			_.delay(clearInput, 800)
 		} else {
-			Analytics.push('guess-incorrect', {
-				guess,
-				timeInGame
-			})
 			animate(input, 'incorrect')
 			_.delay(clearInput, 800)
 		}
@@ -384,11 +360,6 @@ const addAnswerToWordBank = (guess) => {
 
 // Game-adjacent things (beginning + end of game)
 const congratulate = () => {
-	Analytics.push('congrats', {
-		'words': foundWords,
-		'score': userScore,
-		timeInGame,
-	})
 	congrats.querySelector('.score').innerText = userScore
 	congrats.querySelector('.word-count').innerText = foundWords.length
 	localStorage.setItem('hasBeenCongratulated', true)
@@ -397,7 +368,6 @@ const congratulate = () => {
 }
 
 const congratulateAndEnd = () => {
-	Analytics.push('finish-game', { timeInGame })
 	finishModal.querySelector('.score').innerText = userScore
 	finishModal.querySelector('.word-count').innerText = answers.length
 	openModal(finishModal)
@@ -433,54 +403,25 @@ const setUpEventListeners = () => {
 
 	// Help
 	helpButton.addEventListener('click', () => {
-		Analytics.push('help', { timeInGame })
+		console.log('what');
 		openModal(helpModal)
 	})
-	exitHelp.addEventListener('click', () => {
-		closeModal(helpModal)
-	})
+	exitHelp.addEventListener('click', () => { closeModal(helpModal) })
 
 	// Tools
 	backspaceButton.addEventListener('click', backspace)
-	shuffleButton.addEventListener('click', () => {
-		debouncedShuffle()
-		Analytics.push('shuffle', { timeInGame })
-	})
+	shuffleButton.addEventListener('click', debouncedShuffle())
 	submitButton.addEventListener('click', submitAnswer)
 
 	// Modals
-	closeAlert.addEventListener('click', () => {
-		localStorage.setItem('hasSeenAlert', true)
-		closeModal(alert)
-	})
-	closeX.addEventListener('click', () => {
-		Analytics.push('close-congrats')
-		closeModal(congrats)
-	})
-	keepPlaying.addEventListener('click', () => {
-		Analytics.push('keep-playing')
-		closeModal(congrats)
-	})
+	closeX.addEventListener('click', () => { closeModal(congrats) })
+	keepPlaying.addEventListener('click', () => { closeModal(congrats) })
 	backToNews.addEventListener('click', () => {
-		Analytics.push('back-to-news')
 		window.location.href = "https://www.nytimes.com"
 	})
-	closeFinish.addEventListener('click', () => {
-		Analytics.push('close-finish')
-		closeModal(finishModal)
-	})
+	closeFinish.addEventListener('click', () => { closeModal(finishModal) })
 	finishBackToNews.addEventListener('click', () => {
-		Analytics.push('finish-back-to-news')
 		window.location.href = "https://www.nytimes.com"
-	})
-
-	// Analytics
-	window.addEventListener('beforeunload', () => {
-		Analytics.push('leave-game', {
-			'words': foundWords,
-			'score': userScore,
-			timeInGame,
-		})
 	})
 }
 

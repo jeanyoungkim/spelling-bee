@@ -2,19 +2,12 @@
 
 function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
-var alert = document.querySelector('#alert');
-var closeAlert = document.querySelector('#close-alert');
-
 var initialize = function initialize() {
 	checkLocalStorage();
 	getPuzzleData();
 
 	setUpEventListeners();
 	renderBoard();
-
-	if (!localStorage.getItem('hasSeenAlert')) {
-		openModal(alert);
-	}
 
 	if (localStorage.getItem('hasProgress')) {
 		loadProgress();
@@ -448,6 +441,7 @@ var setUpEventListeners = function setUpEventListeners() {
 
 	// Help
 	);helpButton.addEventListener('click', function () {
+		console.log('what');
 		openModal(helpModal);
 	});
 	exitHelp.addEventListener('click', function () {
@@ -456,17 +450,11 @@ var setUpEventListeners = function setUpEventListeners() {
 
 	// Tools
 	);backspaceButton.addEventListener('click', backspace);
-	shuffleButton.addEventListener('click', function () {
-		debouncedShuffle();
-	});
+	shuffleButton.addEventListener('click', debouncedShuffle());
 	submitButton.addEventListener('click', submitAnswer
 
 	// Modals
-	);closeAlert.addEventListener('click', function () {
-		localStorage.setItem('hasSeenAlert', true);
-		closeModal(alert);
-	});
-	closeX.addEventListener('click', function () {
+	);closeX.addEventListener('click', function () {
 		closeModal(congrats);
 	});
 	keepPlaying.addEventListener('click', function () {
