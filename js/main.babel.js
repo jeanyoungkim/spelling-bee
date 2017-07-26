@@ -441,7 +441,6 @@ var setUpEventListeners = function setUpEventListeners() {
 
 	// Help
 	);helpButton.addEventListener('click', function () {
-		console.log('what');
 		openModal(helpModal);
 	});
 	exitHelp.addEventListener('click', function () {
@@ -450,7 +449,9 @@ var setUpEventListeners = function setUpEventListeners() {
 
 	// Tools
 	);backspaceButton.addEventListener('click', backspace);
-	shuffleButton.addEventListener('click', debouncedShuffle());
+	shuffleButton.addEventListener('click', function () {
+		debouncedShuffle();
+	});
 	submitButton.addEventListener('click', submitAnswer
 
 	// Modals

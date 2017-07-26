@@ -410,7 +410,7 @@ const setUpEventListeners = () => {
 
 	// Tools
 	backspaceButton.addEventListener('click', backspace)
-	shuffleButton.addEventListener('click', debouncedShuffle())
+	shuffleButton.addEventListener('click', () => { debouncedShuffle() })
 	submitButton.addEventListener('click', submitAnswer)
 
 	// Modals
