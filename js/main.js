@@ -21,7 +21,7 @@ const getDaysInMonth = date => (new Date(date.getFullYear(), date.getMonth() + 1
 
 const getNthDayOfTest = () => {
 	// Starts at 0
-	const startOfTest = new Date('07/06/2017') // TODO update this to actual start date
+	const startOfTest = new Date('07/26/2017') // TODO update this to actual start date
 	const today = new Date()
 
 	const startDate = startOfTest.getDate()

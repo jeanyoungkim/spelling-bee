@@ -27,7 +27,7 @@ var getDaysInMonth = function getDaysInMonth(date) {
 
 var getNthDayOfTest = function getNthDayOfTest() {
 	// Starts at 0
-	var startOfTest = new Date('07/06/2017'); // TODO update this to actual start date
+	var startOfTest = new Date('07/26/2017'); // TODO update this to actual start date
 	var today = new Date();
 
 	var startDate = startOfTest.getDate();
